@@ -4,8 +4,8 @@ import Button from './Button';
 import ImageGallery from './ImageGallery';
 import css from 'components/styles.module.css';
 // import api from '../api/api';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+// import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class App extends Component {
