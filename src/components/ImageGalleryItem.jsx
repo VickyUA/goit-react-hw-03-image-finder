@@ -1,14 +1,8 @@
 import css from 'components/styles.module.css';
 
-const ImageGalleryItem = ({ id, webformatURL, tags }) => {
+const ImageGalleryItem = ({ pictures: { webformatURL, tags } }) => {
   return (
-    <li className={css.ImageGalleryItem} key={id}>
-      <img
-        src={webformatURL}
-        alt={tags}
-        className={css.ImageGalleryItemImage}
-      />
-    </li>
+    <img src={webformatURL} alt={tags} className={css.ImageGalleryItemImage} />
   );
 };
 

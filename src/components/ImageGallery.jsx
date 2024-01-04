@@ -36,13 +36,10 @@ export default class ImageGallery extends Component {
 
         {pictures.length > 0 && (
           <ul className={css.ImageGallery}>
-            {pictures.map(({ id, webformatURL, tags }) => (
-              <ImageGalleryItem
-                key={id}
-                id={id}
-                webformatURL={webformatURL}
-                tags={tags}
-              />
+            {pictures.map(pictures => (
+              <li className={css.ImageGalleryItem} key={pictures.id}>
+                <ImageGalleryItem pictures={pictures} />
+              </li>
             ))}
           </ul>
         )}
