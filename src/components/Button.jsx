@@ -1,11 +1,18 @@
+import { Component } from 'react';
 import css from 'components/styles.module.css';
 
-const Button = () => {
-  return (
-    <button type="button" className={css.loadMoreBtn}>
-      Load more
-    </button>
-  );
-};
+class Button extends Component {
+  render() {
+    return (
+      <button
+        type="button"
+        className={css.loadMoreBtn}
+        onClick={() => this.props.onClick()}
+      >
+        Load more
+      </button>
+    );
+  }
+}
 
 export default Button;

@@ -1,4 +1,3 @@
-// import { Axios } from 'axios';
 import css from './styles.module.css';
 import { Component } from 'react';
 import { toast } from 'react-toastify';
@@ -44,24 +43,5 @@ class Searchbar extends Component {
     );
   }
 }
-
-// const Searchbar = onSubmit => {
-//   return (
-//     <header className={css.Searchbar}>
-//       <form className={css.SearchForm}>
-//         <button type="submit" className={css.SearchFormButton}>
-//           <span>Search</span>
-//         </button>
-
-//         <input
-//           type="text"
-//           autoComplete="off"
-//           autoFocus
-//           placeholder="Search images and photos"
-//         />
-//       </form>
-//     </header>
-//   );
-// };
 
 export default Searchbar;
