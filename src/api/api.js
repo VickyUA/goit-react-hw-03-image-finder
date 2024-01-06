@@ -8,20 +8,4 @@ export const fetchPictures = async (search, page) => {
   return response.data;
 };
 
-export default {
-  fetchPictures,
-};
-
-// import axios from 'axios';
-
-// export const fetchPictures = async search => {
-//   const response = await axios.get(
-//     `https://pixabay.com/api/?q=${search}&page=1&key=41535540-3e2fcae5f9a93b6d79476b27b&image_type=photo&orientation=horizontal&per_page=12`
-//   );
-
-//   return response.data.hits;
-// };
-
-// export default {
-//   fetchPictures,
-// };
+export { fetchPictures };
