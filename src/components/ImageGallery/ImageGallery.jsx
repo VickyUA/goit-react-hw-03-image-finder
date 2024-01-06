@@ -1,6 +1,7 @@
-import css from 'components/styles.module.css';
+import css from 'components/ImageGallery/ImageGallery.module.css';
 import { Component } from 'react';
-import ImageGalleryItem from 'components/ImageGalleryItem';
+import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+import Loader from 'components/Loader/Loader';
 
 export default class ImageGallery extends Component {
   render() {
@@ -10,13 +11,13 @@ export default class ImageGallery extends Component {
       <>
         {error && <p>Whoops, something went wrong: {error.message}</p>}
 
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <Loader />}
 
         {pictures.length > 0 && (
           <ul className={css.ImageGallery}>
-            {pictures.map(pictures => (
-              <li className={css.ImageGalleryItem} key={pictures.id}>
-                <ImageGalleryItem pictures={pictures} />
+            {pictures.map(picture => (
+              <li className={css.ImageGalleryItem} key={picture.id}>
+                <ImageGalleryItem {...picture} onClick={this.props.onSelect} />
               </li>
             ))}
           </ul>

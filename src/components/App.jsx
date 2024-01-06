@@ -1,11 +1,12 @@
 import { Component } from 'react';
-import Searchbar from './searchbar';
-import Button from './Button';
-import ImageGallery from './ImageGallery';
+import Searchbar from './Searchbar/Searchbar';
+import Button from './Button/Button';
+import ImageGallery from './ImageGallery/ImageGallery';
 import css from 'components/styles.module.css';
 import { fetchPictures } from '../api/api';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from './Modal/Modal';
 
 export default class App extends Component {
   state = {
@@ -15,6 +16,7 @@ export default class App extends Component {
     error: null,
     page: 1,
     buttonIsShown: false,
+    largeImageURL: null,
   };
 
   handleFormSubmit = searchInput => {
@@ -56,6 +58,14 @@ export default class App extends Component {
     }
   }
 
+  openModal = largeImageURL => {
+    this.setState({ largeImageURL });
+  };
+
+  closeModal = () => {
+    this.setState({ largeImageURL: null });
+  };
+
   render() {
     return (
       <div className={css.App}>
@@ -64,6 +74,7 @@ export default class App extends Component {
           error={this.state.error}
           isLoading={this.state.isLoading}
           pictures={this.state.pictures}
+          onSelect={this.openModal}
         />
         {this.state.buttonIsShown && <Button onClick={this.handleClick} />}
         <ToastContainer
@@ -71,6 +82,12 @@ export default class App extends Component {
           autoClose={3000}
           theme="colored"
         />
+        {this.state.largeImageURL && (
+          <Modal
+            largeImageURL={this.state.largeImageURL}
+            onClose={this.closeModal}
+          />
+        )}
       </div>
     );
   }
