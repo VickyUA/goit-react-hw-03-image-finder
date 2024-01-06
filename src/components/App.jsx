@@ -3,7 +3,7 @@ import Searchbar from './searchbar';
 import Button from './Button';
 import ImageGallery from './ImageGallery';
 import css from 'components/styles.module.css';
-import api from '../api/api';
+import { fetchPictures } from '../api/api';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,7 +39,7 @@ export default class App extends Component {
       prevState.page !== this.state.page
     ) {
       try {
-        const pictures = await api.fetchPictures(
+        const pictures = await fetchPictures(
           this.state.searchInput,
           this.state.page
         );
