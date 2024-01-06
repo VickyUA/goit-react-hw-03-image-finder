@@ -8,4 +8,4 @@ const fetchPictures = async (search, page) => {
   return response.data;
 };
 
-export { fetchPictures };
+export default { fetchPictures };
