@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import css from 'components/ImageGalleryItem/ImageGalleryItem.module.css';
 
 const ImageGalleryItem = ({
